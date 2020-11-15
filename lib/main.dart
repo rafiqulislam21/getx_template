@@ -5,6 +5,7 @@ import 'package:getx_template/utils/languages.dart';
 import 'package:getx_template/utils/theme_services.dart';
 import 'package:getx_template/views/home_screen.dart';
 import 'package:getx_template/views/shopping_page.dart';
+import 'utils/language_services.dart';
 import 'utils/themes.dart';
 
 void main() async {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Getx template',
       translations: Languages(), // your translations
-      locale: Locale('bn', 'BD'), // translations will be displayed in that locale
+      locale: LanguageService().locale ?? Locale('en', 'US'), // translations will be displayed in that locale
       fallbackLocale: Locale('en', 'US'),
       theme: Themes.light,
       darkTheme: Themes.dark,

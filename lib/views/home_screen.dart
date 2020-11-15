@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_template/models/products.dart';
+import 'package:getx_template/utils/language_services.dart';
 import 'package:getx_template/utils/theme_services.dart';
 import 'package:getx_template/views/shopping_page.dart';
 
@@ -17,26 +17,35 @@ class HomeScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            RaisedButton(
-              color: context.theme.buttonColor,
-              child: Text(
-                'Change Theme',
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: ThemeService().switchTheme,
+            ListTile(
+                leading: Icon(ThemeService().loadThemeFromBox() ? Icons.wb_twighlight : Icons.wb_sunny_sharp),
+                title:  Text('change_theme'.tr),
+                subtitle: Text(ThemeService().loadThemeFromBox() ? 'dark'.tr : 'light'.tr),
+                trailing: Switch(
+                  value: ThemeService().loadThemeFromBox(),
+                  onChanged: (val){
+                    ThemeService().switchTheme();
+                  },
+                  activeColor: Theme.of(context).accentColor,
+                )
             ),
-            RaisedButton(
-              color: context.theme.buttonColor,
-              child: Text(
-                'Change Language',
-                style: TextStyle(color: Colors.white),
-              ),
-              onPressed: (){
-                var locale = Locale('bn', 'BD');
-                Get.updateLocale(locale);
-                print(Get.locale);
+
+            ListTile(
+              leading: Icon(Icons.translate),
+              title:  Text('change_language'.tr),
+              subtitle: Text(LanguageService().locale.languageCode == 'bn' ? 'bengali'.tr : 'english'.tr),
+              trailing: Switch(
+              value: LanguageService().locale.languageCode == 'bn' ? true : false,
+              onChanged: (val){
+                if(val){
+                  LanguageService().switchLanguage(changeLocale: Locale('bn','BD'));
+                }else{
+                  LanguageService().switchLanguage(changeLocale: Locale('en','US'));
+                }
               },
-            ),
+              activeColor: Theme.of(context).accentColor,
+            )
+            )
           ],
         ),
       ),
