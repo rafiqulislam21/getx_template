@@ -4,6 +4,9 @@ import 'package:getx_template/utils/language_services.dart';
 import 'package:getx_template/utils/theme_services.dart';
 import 'package:getx_template/views/shopping_page.dart';
 
+import 'news_page.dart';
+import 'view_all_widgets.dart';
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,22 @@ class HomeScreen extends StatelessWidget {
               },
               activeColor: Theme.of(context).accentColor,
             )
-            )
+            ),
+
+            ListTile(
+                leading: Icon(Icons.widgets),
+                title:  Text('Essential widgets'),
+                subtitle: Text('Custom widgets for use'),
+                trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: (){
+                Get.to(
+                  ViewAllWidgets(),
+                  duration: Duration(seconds: 1),
+                  curve: Curves.easeInOutBack,
+                  transition: Transition.zoom,
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -58,6 +76,17 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Get.to(
                       ShoppingPage(),
+                      duration: Duration(seconds: 1),
+                      curve: Curves.easeInOutBack,
+                      transition: Transition.zoom,
+                    );
+                  }
+                  ),
+              RaisedButton(
+                  child: Text("News"),
+                  onPressed: () {
+                    Get.to(
+                      NewsPage(),
                       duration: Duration(seconds: 1),
                       curve: Curves.easeInOutBack,
                       transition: Transition.zoom,
@@ -133,6 +162,7 @@ class HomeScreen extends StatelessWidget {
   _showBottomSheet() {
     Get.bottomSheet(
       Container(
+        // color: Get.theme.cardColor,
         child: Wrap(
           children: <Widget>[
             ListTile(
@@ -151,6 +181,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       enableDrag: true,
+      backgroundColor: Get.theme.cardColor,
     );
   }
 }
