@@ -5,22 +5,24 @@ class Themes {
 
   static Color darkPrimary = Colors.black;
 
-  static Color lightAccent = Color(0xFF021235);
-  static Color darkAccent = Colors.grey[300];
-  static Color lightBG = Color(0xfffcfcff);
+  static Color lightAccent = Color(0x66000000);
+  static Color darkAccent = Colors.grey[400];
 
-  static Color lightBG2 = Colors.grey[200];
+  static Color lightBG = Color(0xfffcfcff);
+  static Color darkBG = Colors.black;
+
+  static Color lightBG2 = Colors.grey[300];
   static Color lightBG3 = Color(0xfffcfcff);
 
-  static Color darkBG = Colors.black
-
-      /*Color(0xff1E1E1E)*/ /*Colors.black*/;
-
-  static Color darkBG2 = Color(0xff1E1E1E)
-
-      /*Color(0xff333333)*/ /*Color(0xff1E1E1E)*/;
-
+  static Color darkBG2 = Color(0xff1E1E1E);
   static Color darkBG3 = Color(0xff333333);
+
+  static Color buttonLight = Colors.blueAccent;
+  static Color buttonDark = Colors.deepOrange;
+
+  static Color appbarLight = Colors.green[300];
+  static Color appbarDark = Color(0xff1E1E1E);
+
   static var darkShadow = const <BoxShadow>[
     BoxShadow(
       color: const Color(0x66000000),
@@ -43,14 +45,14 @@ class Themes {
       brightness: Brightness.light,
       appBarTheme: AppBarTheme(
         brightness: Brightness.light,
-        color: lightBG2
+        color: appbarLight
       ),
       backgroundColor: lightBG,
       primaryColor: lightPrimary,
       accentColor: lightAccent,
       cursorColor: lightAccent,
       scaffoldBackgroundColor: lightBG,
-      buttonColor: Colors.blueAccent,
+      buttonColor: buttonLight,
       bottomAppBarColor: lightBG2,
       bottomAppBarTheme: BottomAppBarTheme(color: lightBG2),
       cardColor: lightBG2,
@@ -66,14 +68,14 @@ class Themes {
     brightness: Brightness.dark,
     appBarTheme: AppBarTheme(
         brightness: Brightness.dark,
-        color: darkBG2
+        color: appbarDark
     ),
     backgroundColor: darkBG,
     primaryColor: darkPrimary,
     accentColor: darkAccent,
     scaffoldBackgroundColor: darkBG,
     cursorColor: darkAccent,
-    buttonColor: Colors.deepOrange,
+    buttonColor: buttonDark,
     bottomAppBarColor: darkBG2,
     bottomAppBarTheme: BottomAppBarTheme(color: darkBG2),
     cardColor: darkBG2,

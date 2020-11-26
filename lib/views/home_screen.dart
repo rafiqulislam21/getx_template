@@ -182,6 +182,9 @@ class HomeScreen extends StatelessWidget {
       ),
       enableDrag: true,
       backgroundColor: Get.theme.cardColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(10.0)),
+      ),
     );
   }
 }

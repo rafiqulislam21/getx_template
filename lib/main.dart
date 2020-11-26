@@ -7,6 +7,7 @@ import 'package:getx_template/views/home_screen.dart';
 import 'package:getx_template/views/shopping_page.dart';
 import 'utils/language_services.dart';
 import 'utils/themes.dart';
+import 'views/splash_screen.dart';
 
 void main() async {
   await GetStorage.init();
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       theme: Themes.light,
       darkTheme: Themes.dark,
       themeMode: ThemeService().theme,
-      home: HomeScreen(),/*MyHomePage(title: 'Flutter Demo Home Page'),*/
+      enableLog: false,
+      home: SplashScreen()/*HomeScreen()*/,
     );
   }
 }

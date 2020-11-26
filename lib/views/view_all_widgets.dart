@@ -26,7 +26,7 @@ class ViewAllWidgets extends StatelessWidget {
                   CustomTextField(
                     icon: Icons.search,
                     hintText: "Enter here....",
-                    labelText: "Laabel here",
+                    labelText: "Label here",
                   ),
                   CustomTextFieldPassword(
                     icon: Icons.lock_open_rounded,
@@ -38,6 +38,12 @@ class ViewAllWidgets extends StatelessWidget {
                     text: "Custom Button",
                     color: Colors.green,
                     borderColor: Colors.red,
+                    onPressed: (){
+
+                    },
+                  ),
+                  CloseButton(
+                    color: Colors.green,
                     onPressed: (){
 
                     },
