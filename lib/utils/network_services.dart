@@ -18,7 +18,7 @@ class NetworkServices {
   Future loadStock() async {
     try {
       var response = await http.get(
-        stockAll,
+        Uri.parse(stockAll),
       );
       // print("${response.body}");
       if (response != null) return response.body;
@@ -31,7 +31,7 @@ class NetworkServices {
   Future loadNews() async {
     try {
       var response = await http.get(
-        newsAll,
+        Uri.parse(newsAll),
       );
       // print("${response.body}");
       if (response != null) return response.body;

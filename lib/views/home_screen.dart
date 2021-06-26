@@ -6,6 +6,7 @@ import 'package:getx_template/views/shopping_page.dart';
 
 import 'news_page.dart';
 import 'view_all_widgets.dart';
+import 'widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -71,7 +72,7 @@ class HomeScreen extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              RaisedButton(
+              ElevatedButton(
                   child: Text("Products"),
                   onPressed: () {
                     Get.to(
@@ -82,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                     );
                   }
                   ),
-              RaisedButton(
+              ElevatedButton(
                   child: Text("News"),
                   onPressed: () {
                     Get.to(
@@ -98,19 +99,19 @@ class HomeScreen extends StatelessWidget {
           // Get.back();
           // Get.off(NextScreen());
           // Get.offAll(NextScreen());
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Go To Second"),
                 onPressed: () => goToNext(),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Snackbar"),
                 onPressed: _showSnackBar,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Dialog"),
                 onPressed: _showDialog,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("Bottom Sheet"),
                 onPressed: _showBottomSheet,
               ),
@@ -126,6 +127,25 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        // currentIndex: 0,
+        unselectedFontSize: 10,
+        selectedFontSize: 10,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.mail),
+            label: 'Messages',
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile'
+          )
+        ],
       ),
     );
   }

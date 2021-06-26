@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Getx template',
+      title: 'Title',
       translations: Languages(), // your translations
       locale: LanguageService().locale ?? Locale('en', 'US'), // translations will be displayed in that locale
       fallbackLocale: Locale('en', 'US'),

@@ -6,7 +6,12 @@ import 'package:get_storage/get_storage.dart';
 class ThemeService {
   final _box = GetStorage();
   final _key = 'isDarkMode';
-
+  ThemeService(){
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: loadThemeFromBox() ? Brightness.light : Brightness.dark,
+    ));
+  }
   /// Get isDarkMode info from local storage and return ThemeMode
   ThemeMode get theme => loadThemeFromBox() ? ThemeMode.dark : ThemeMode.light;
 

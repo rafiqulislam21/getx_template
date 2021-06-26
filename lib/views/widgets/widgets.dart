@@ -1,5 +1,4 @@
 export 'custom_app_bar.dart';
-export 'custom_bottom_app_bar.dart.';
 export 'custom_button.dart';
 export 'custom_cached_network_image.dart';
 export 'custom_category_tile.dart';
