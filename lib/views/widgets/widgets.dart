@@ -11,5 +11,5 @@ export 'custom_tile.dart';
 export 'custom_toggle_button.dart';
 export 'custom_toggle_tile.dart';
 export 'custom_webview.dart';
-export 'custom_widget.dart';
+export 'empty_widget.dart';
 export 'number_translator.dart';

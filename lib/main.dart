@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:getx_template/utils/languages.dart';
-import 'package:getx_template/utils/theme_services.dart';
-import 'package:getx_template/views/home_screen.dart';
-import 'package:getx_template/views/shopping_page.dart';
-import 'utils/language_services.dart';
-import 'utils/themes.dart';
-import 'views/splash_screen.dart';
+import 'package:getx_template/services/language/languages.dart';
+import 'package:getx_template/services/theme/theme_services.dart';
+import 'services/language/language_services.dart';
+import 'services/theme/themes.dart';
+import 'views/pages/splash_screen.dart';
 
 void main() async {
   await GetStorage.init();

@@ -17,7 +17,7 @@ class CustomToggleButton extends StatefulWidget {
     this.textColor = const Color(0xFF000000),
     this.shadows = const [
       BoxShadow(
-        color: const Color(0xFFd8d7da),
+        color: Colors.black12,
         spreadRadius: 5,
         blurRadius: 10,
         offset: Offset(0, 5),

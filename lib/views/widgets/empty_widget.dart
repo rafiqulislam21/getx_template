@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-class CustomWidget extends StatelessWidget {
+class EmptyWidget extends StatelessWidget {
   final IconData icon;
   final int iconSize;
 
-  const CustomWidget({Key key, this.icon, this.iconSize}) : super(key: key);
+  const EmptyWidget({Key key, this.icon, this.iconSize}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:getx_template/views/home_screen.dart';
+import 'package:getx_template/views/pages/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   @override

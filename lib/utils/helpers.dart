@@ -1,0 +1,7 @@
+/// global funcions
+emailValidator(){
+
+}
+phoneNumberValidator(){
+
+}

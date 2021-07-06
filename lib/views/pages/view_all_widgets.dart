@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'widgets/widgets.dart';
+import '../widgets/widgets.dart';
 
 class ViewAllWidgets extends StatelessWidget {
   @override
@@ -16,11 +16,11 @@ class ViewAllWidgets extends StatelessWidget {
             child: Center(
               child: Column(
                 children: [
-                  CustomWidget(),
-                  CustomWidget(
+                  EmptyWidget(),
+                  EmptyWidget(
                     icon: Icons.wifi_off,
                   ),
-                  CustomWidget(
+                  EmptyWidget(
                     icon: Icons.hourglass_empty,
                   ),
                   CustomTextField(
@@ -65,6 +65,7 @@ class ViewAllWidgets extends StatelessWidget {
                   ),
                   CustomToggleButton(
                     values: ['on','off'],
+
                     onToggleCallback: (index){
                       print(index);
                     },
