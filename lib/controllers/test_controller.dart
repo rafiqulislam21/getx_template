@@ -1,11 +1,12 @@
 import 'package:get/get.dart';
+import 'package:getx_template/constants/api_urls.dart';
 import 'package:getx_template/controllers/base_controller.dart';
 import 'package:getx_template/models/demo_data/demo_data_model.dart';
 import 'package:getx_template/services/base_client.dart';
 
 class TestController extends GetxController with BaseController {
-  var demoData = DemoModel().obs;
-
+  Rx<DemoModel?>? demoData = DemoModel().obs;
+  Rx<bool> hasData = false.obs;
 
   @override
   void onInit() {
@@ -14,28 +15,27 @@ class TestController extends GetxController with BaseController {
   }
 
   void getData() async {
-    demoData.value = null;
+    // demoData?.value = null;
     await Future.delayed(Duration(milliseconds: 100));
     showLoading('Fetching data');
-    var response = await BaseClient()
-        .get('https://jsonplaceholder.typicode.com', '/todos/1')
-        .catchError(handleError);
+    var response =
+        await BaseClient().get(ApiUrls.TODO_API).catchError(handleError);
     if (response != null) {
-      demoData.value = DemoModel.fromJson(response);
+      demoData?.value = DemoModel.fromJson(response);
+      hasData.value = true;
     }
-    else{
-      return;
-    }
+    // else {
+    //   return;
+    // }
     hideLoading();
     print(response);
   }
 
-
   void postData() async {
-    var request = {'message': 'CodeX sucks!!!'};
+    var request = {'message': 'some test data'};
     showLoading('Posting data...');
     var response = await BaseClient()
-        .post('https://jsonplaceholder.typicode.com', '/posts', request)
+        .post(ApiUrls.POST_DATA_API, body: request)
         .catchError(handleError);
     if (response == null) return;
     hideLoading();

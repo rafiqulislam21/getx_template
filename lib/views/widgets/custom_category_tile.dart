@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomCategoryTile extends StatelessWidget {
-  final String title;
-  final Function onPress;
-  final Color color;
-  final IconData icon;
+  final String? title;
+  final Function? onPress;
+  final Color? color;
+  final IconData? icon;
 
-  const CustomCategoryTile({Key key, this.title, this.onPress, this.color, this.icon}) : super(key: key);
+  const CustomCategoryTile({Key? key, this.title, this.onPress, this.color, this.icon}) : super(key: key);
 
 
   @override
@@ -14,7 +14,7 @@ class CustomCategoryTile extends StatelessWidget {
     return RawMaterialButton(
       fillColor: color??Theme.of(context).cardColor,
       padding: EdgeInsets.symmetric(horizontal: 8),
-      onPressed: onPress,
+      onPressed: onPress as void Function()?,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

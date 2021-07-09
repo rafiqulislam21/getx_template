@@ -8,8 +8,8 @@ import 'app_exceptions.dart';
 class BaseClient {
   static const int TIME_OUT_DURATION = 20;
   //GET
-  Future<dynamic> get(String baseUrl, String api) async {
-    var uri = Uri.parse(baseUrl + api);
+  Future<dynamic> get(String url) async {
+    var uri = Uri.parse(url);
     try {
       var response =
           await http.get(uri).timeout(Duration(seconds: TIME_OUT_DURATION));
@@ -23,9 +23,9 @@ class BaseClient {
   }
 
   //POST
-  Future<dynamic> post(String baseUrl, String api, dynamic payloadObj) async {
-    var uri = Uri.parse(baseUrl + api);
-    var payload = json.encode(payloadObj);
+  Future<dynamic> post(String url, {dynamic body}) async {
+    var uri = Uri.parse(url);
+    var payload = json.encode(body);
     try {
       var response = await http
           .post(uri, body: payload)
@@ -54,16 +54,16 @@ class BaseClient {
         break;
       case 400:
         throw BadRequestException(
-            jsonDecode(response.body), response.request.url.toString());
+            jsonDecode(response.body), response.request!.url.toString());
       case 401:
       case 403:
         throw UnAuthorizedException(
-            jsonDecode(response.body), response.request.url.toString());
+            jsonDecode(response.body), response.request!.url.toString());
       case 500:
       default:
         throw FetchDataException(
             'Error occurred23 with code : ${response.statusCode}',
-            response.request.url.toString());
+            response.request!.url.toString());
     }
   }
 }

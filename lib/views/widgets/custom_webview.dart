@@ -1,8 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+class CustomWebView extends StatelessWidget {
+  late final String url;
 
+  CustomWebView({Key? key, required this.url}) : super(key: key);
+
+  // final bool isLoading = true;
+  // final bool isError = false;
+  final ValueNotifier<bool> isLoading = ValueNotifier<bool>(true);
+  final ValueNotifier<bool> isError = ValueNotifier<bool>(false);
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<bool>(
+        valueListenable: isError,
+        builder: (BuildContext context, bool value, Widget? child) {
+          return SizedBox(
+            child: isError.value
+                ? Scaffold(
+                    body: Center(
+                      child: Text('Not Available!'),
+                    ),
+                  )
+                : ValueListenableBuilder<bool>(
+                    valueListenable: isLoading,
+                    builder: (BuildContext context, bool value, Widget? child) {
+                      return Stack(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 0),
+                            child: WebView(
+                              initialUrl: url,
+                              onWebResourceError: (error) {
+                                isError.value = true;
+                              },
+                              javascriptMode: JavascriptMode.unrestricted,
+                              onPageFinished: (val) {
+                                isLoading.value = false;
+                              },
+                            ),
+                          ),
+                          isLoading.value
+                              ? Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : SizedBox(),
+                        ],
+                      );
+                    }),
+          );
+        });
+  }
+}
+
+/*
 class CustomWebView extends StatefulWidget {
   final String url;
 
@@ -19,8 +71,10 @@ class _CustomWebViewState extends State<CustomWebView> {
   @override
   Widget build(BuildContext context) {
     return isError
-        ? Center(
-          child:Text('not_available'),
+        ? Scaffold(
+          body: Center(
+              child: Text('Not Available!'),
+            ),
         )
         : Stack(
             children: [
@@ -48,116 +102,6 @@ class _CustomWebViewState extends State<CustomWebView> {
                   : SizedBox(),
             ],
           );
-  }
-}
-/*
-
-class CustomWebViewLandscape extends StatefulWidget {
-  final String url;
-  final int stockId;
-  final String stockName;
-
-  const CustomWebViewLandscape({
-    Key key,
-    this.url,
-    this.stockId,
-    this.stockName,
-  }) : super(key: key);
-
-  @override
-  _CustomWebViewLandscapeState createState() => _CustomWebViewLandscapeState();
-}
-
-class _CustomWebViewLandscapeState extends State<CustomWebViewLandscape> {
-  DateTime backButtonPressedTime;
-  bool isLoading = true;
-  bool isError = false;
-
-  Future<bool> onWillPop() async {
-    */
-/*DateTime currentTime = DateTime.now();
-
-    bool backButton = backButtonPressedTime == null ||
-        currentTime.difference(backButtonPressedTime) > Duration(seconds: 1);
-
-    if (backButton) {
-      HapticFeedback.vibrate();
-      backButtonPressedTime = currentTime;
-
-//      pageController.animateToPage(0,duration: Duration(milliseconds: 800),curve: Curves.easeOutExpo);
-      return false;
-    } else {
-      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => MarketDetails(
-            stockId: widget.stockId,
-            stockName: widget.stockName,
-          ))
-      );
-    }*//*
-
-    */
-/*SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-    Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) => MarketDetails(
-                  stockId: widget.stockId,
-                  stockName: widget.stockName,
-                )));*//*
-
-    return true;
-  }
-
-  Future<bool> onlyPop() async {
-    return true;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-    return WillPopScope(
-      onWillPop: widget.stockId == null ? onlyPop : onWillPop,
-      child: SafeArea(
-        child: isError
-            ? Center(
-                child: EmptyWidget(
-                  icon: Icons.insert_chart,
-                  title: tr('not_available'),
-                ),
-              )
-            :Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 0),
-              child: WebView(
-                initialUrl: widget.url ?? "",
-                javascriptMode: JavascriptMode.unrestricted,
-                onWebResourceError: (error){
-                  setState(() {
-                    isError = true;
-                  });
-                },
-                onPageFinished: (val) {
-                  if (mounted) {
-                    setState(() {
-                      isLoading = false;
-                    });
-                  }
-                },
-              ),
-            ),
-            isLoading
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : SizedBox(),
-          ],
-        ),
-      ),
-    );
   }
 }
 */

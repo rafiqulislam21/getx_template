@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CustomTextFieldPassword extends StatefulWidget {
-  final String hintText;
-  final String labelText;
-  final IconData icon;
-  final TextEditingController controller;
-  final bool isNumberInputOnly;
+  final String? hintText;
+  final String? labelText;
+  final IconData? icon;
+  final TextEditingController? controller;
+  final bool? isNumberInputOnly;
   final formKey;
 
   CustomTextFieldPassword(
@@ -22,7 +22,7 @@ class CustomTextFieldPassword extends StatefulWidget {
 }
 
 class _CustomTextFieldPasswordState extends State<CustomTextFieldPassword> {
-  bool  passwordVisible;
+  late bool  passwordVisible;
 
   @override
   void initState() {

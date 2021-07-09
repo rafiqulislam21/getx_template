@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatefulWidget {
-  final int current;
-  final List dropItems;
+  final int? current;
+  final List? dropItems;
   final String hintText;
-  final Function(dynamic) onchange;
+  final Function(dynamic)? onchange;
   final isSmall;
   final isBold;
 
   CustomDropdown(
       {
-        @required this.hintText,
-        @required this.dropItems,
+        required this.hintText,
+        required this.dropItems,
         this.onchange,
         this.current,
         this.isSmall,
@@ -73,7 +73,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
                     value: int.parse(key['id'].toString()),
                     child: Text(key['name']??key['country_name']),
                   );
-                })?.toList()??[],
+                }).toList()??[],
               ),
             ),
           ],

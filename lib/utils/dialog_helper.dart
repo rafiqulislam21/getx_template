@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class DialogHelper {
   //show error dialog
   static void showErroDialog(
-      {String title = 'Error', String description = 'Something went wrong'}) {
+      {String? title = 'Error', String? description = 'Something went wrong'}) {
     Get.dialog(
       Dialog(
         child: Padding(
@@ -22,7 +22,7 @@ class DialogHelper {
               ),
               ElevatedButton(
                 onPressed: () {
-                  if (Get.isDialogOpen) Get.back();
+                  if (Get.isDialogOpen!) Get.back();
                 },
                 child: Text('Okay'),
               ),
@@ -36,7 +36,7 @@ class DialogHelper {
   //show toast
   //show snack bar
   //show loading
-  static void showLoading([String message]) {
+  static void showLoading([String? message]) {
     Get.dialog(
       Dialog(
         child: Padding(
@@ -56,6 +56,6 @@ class DialogHelper {
 
   //hide loading
   static void hideLoading() {
-    if (Get.isDialogOpen) Get.back();
+    if (Get.isDialogOpen!) Get.back();
   }
 }

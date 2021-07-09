@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget{
   final isExpanded;
-  final List<Widget> actions;
-  final Widget title;
-  final Widget leading;
-  final double titleSpacing;
+  final List<Widget>? actions;
+  final Widget? title;
+  final Widget? leading;
+  final double? titleSpacing;
 
 
 
   const CustomAppBar({
-    Key key,
+    Key? key,
     this.actions,
     this.title,
     this.isExpanded,

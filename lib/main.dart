@@ -18,10 +18,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Title',
       translations: Languages(), // your translations
-      locale: LanguageService().locale ?? Locale('en', 'US'), // translations will be displayed in that locale
+      locale: LanguageService().locale , // translations will be displayed in that locale
       fallbackLocale: Locale('en', 'US'),
       theme: Themes.light,
       darkTheme: Themes.dark,
+      defaultTransition: Transition.fadeIn,
       themeMode: ThemeService().theme,
       enableLog: false,
       home: SplashScreen()/*HomeScreen()*/,

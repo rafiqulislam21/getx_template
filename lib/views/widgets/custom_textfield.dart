@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
-  final String hintText;
-  final String labelText;
-  final IconData icon;
+  final String? hintText;
+  final String? labelText;
+  final IconData? icon;
 
-  final TextEditingController controller;
-  final bool isNumberInputOnly;
+  final TextEditingController? controller;
+  final bool? isNumberInputOnly;
   final formKey;
   final readOnly;
 

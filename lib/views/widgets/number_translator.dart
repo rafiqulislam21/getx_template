@@ -5,7 +5,7 @@ class NumberTranslator {
 
   NumberTranslator({@required this.number});*/
 
-  static String translate({@required String number}) {
+  static String translate({required String number}) {
     String numberStr = number.toString();
     String newNumberStr = "";
     if (number != null) {

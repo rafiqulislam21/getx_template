@@ -14,14 +14,14 @@ class TestPage extends StatelessWidget {
       appBar: AppBar(title: Text('TestPage')),
       body: Obx(() => AnimatedCrossFade(
         duration: Duration(milliseconds: 500),
-        crossFadeState: controller.demoData.value == null ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+        crossFadeState: !controller.hasData.value ? CrossFadeState.showFirst : CrossFadeState.showSecond,
         firstChild: EmptyWidget(),
         secondChild: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
               leading: Icon(Icons.message),
-              title: Text(controller?.demoData?.value?.title??""),
+              title: Text(controller.demoData?.value?.title??""),
             )
             /*ElevatedButton(
                   onPressed: () async {

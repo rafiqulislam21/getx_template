@@ -36,8 +36,6 @@ class ViewAllWidgets extends StatelessWidget {
                   CustomButton(
                     icon: Icons.add,
                     text: "Custom Button",
-                    color: Colors.green,
-                    borderColor: Colors.red,
                     onPressed: (){
 
                     },
@@ -50,7 +48,6 @@ class ViewAllWidgets extends StatelessWidget {
                   ),
                   CustomButton(
                     text: "loading widget",
-                    borderColor: Colors.amber,
                     onPressed: (){
                       CustomLoading.show();
                     },
@@ -59,6 +56,9 @@ class ViewAllWidgets extends StatelessWidget {
                     url: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
                     width: 200,
                   ),
+                  Container(
+                      height: 500,
+                      child: CustomWebView(url: 'https://www.google.com/')),
                   CustomCategoryTile(
                     title: "Category",
                     icon: Icons.arrow_right,
@@ -70,7 +70,7 @@ class ViewAllWidgets extends StatelessWidget {
                       print(index);
                     },
                   ),
-                  CustomToggleTile(
+                  CustomExpansionTile(
                     icon: Icons.widgets,
                     color: Get.theme.splashColor,
                     title: "Title",

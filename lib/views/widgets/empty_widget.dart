@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class EmptyWidget extends StatelessWidget {
-  final IconData icon;
-  final int iconSize;
+  final IconData? icon;
+  final double? iconSize;
 
-  const EmptyWidget({Key key, this.icon, this.iconSize}) : super(key: key);
+  const EmptyWidget({Key? key, this.icon, this.iconSize = 80}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +20,7 @@ class EmptyWidget extends StatelessWidget {
               child: Icon(
                 icon??Icons.error_outline,
                 color: Get.theme.splashColor,
-                size: iconSize??80,
+                size: iconSize,
               ),
             ),
           )

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class CustomToggleTile extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Color color;
-  final List<Widget> children;
+class CustomExpansionTile extends StatelessWidget {
+  final String? title;
+  final IconData? icon;
+  final Color? color;
+  final List<Widget>? children;
 
-  const CustomToggleTile({
+  const CustomExpansionTile({
     this.icon,
     this.title,
     this.color,
     this.children,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -36,7 +36,7 @@ class CustomToggleTile extends StatelessWidget {
                   width: 16.0,
                 ),
                 Text(
-                  title,
+                  title!,
                   style: TextStyle(
                     //fontWeight: FontWeight.w500,
                       color: Colors.grey[600]

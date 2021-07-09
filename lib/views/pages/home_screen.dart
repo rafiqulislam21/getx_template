@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
       ),
       bottomNavigationBar: ValueListenableBuilder<int>(
           valueListenable: currentPage,
-          builder: (BuildContext context, int value, Widget child) {
+          builder: (BuildContext context, int value, Widget? child) {
             return BottomNavigationBar(
               currentIndex: currentPage.value,
               unselectedFontSize: 10,

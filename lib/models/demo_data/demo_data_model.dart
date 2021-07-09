@@ -1,8 +1,8 @@
 class DemoModel {
-  int userId;
-  int id;
-  String title;
-  bool completed;
+  int? userId;
+  int? id;
+  String? title;
+  bool? completed;
 
   DemoModel({this.userId, this.id, this.title, this.completed});
 

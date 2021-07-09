@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomDialog extends StatefulWidget {
-  final String title;
-  final Color color;
-  final List<Widget> design;
-  final Function onPressed;
-  final String btnText;
+  final String? title;
+  final Color? color;
+  final List<Widget>? design;
+  final Function? onPressed;
+  final String? btnText;
 
   CustomDialog(
       {this.title, this.color, this.design, this.onPressed, this.btnText});
@@ -71,7 +71,7 @@ class _CustomDialogState extends State<CustomDialog> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: new BorderRadius.circular(18.0),
                                 side: BorderSide(color: Colors.transparent)),
-                            onPressed: widget.onPressed,
+                            onPressed: widget.onPressed as void Function()?,
                             child: Text(
                               widget.btnText ?? "",
                               style: TextStyle(fontSize: 12,color: Colors.white),

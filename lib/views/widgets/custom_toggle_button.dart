@@ -10,8 +10,8 @@ class CustomToggleButton extends StatefulWidget {
   bool initialPosition;
 
   CustomToggleButton({
-    @required this.values,
-    @required this.onToggleCallback,
+    required this.values,
+    required this.onToggleCallback,
     this.backgroundColor = const Color(0xFFe7e7e8),
     this.buttonColor = const Color(0xFFFFFFFF),
     this.textColor = const Color(0xFF000000),

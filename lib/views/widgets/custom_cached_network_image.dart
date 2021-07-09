@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 
 class CustomCachedNetworkImage extends StatelessWidget {
-  final String url;
-  final double height;
-  final double width;
+  final String? url;
+  final double? height;
+  final double? width;
 
-  const CustomCachedNetworkImage({Key key, this.url, this.height, this.width}) : super(key: key);
+  const CustomCachedNetworkImage({Key? key, this.url, this.height, this.width}) : super(key: key);
 
 
   @override
@@ -21,11 +21,11 @@ class CustomCachedNetworkImage extends StatelessWidget {
           decoration: BoxDecoration(
               color: Colors.grey[400],
               border: Border.all(
-                color: Colors.grey[200],
+                color: Colors.grey[200]!,
               ),
               borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
-          child: Center(child: Text("No Image",textAlign: TextAlign.center ,style: TextStyle(color: Theme.of(context).splashColor,fontSize: height == null ? 15 : height/4),)),
+          child: Center(child: Text("No Image",textAlign: TextAlign.center ,style: TextStyle(color: Theme.of(context).splashColor,fontSize: height == null ? 15 : height!/4),)),
           height: height,
           width: width,
         ),

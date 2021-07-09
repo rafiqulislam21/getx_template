@@ -2,20 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DrawerItem extends StatelessWidget {
-  final String title;
-  final String subTitle;
-  final IconData icon;
-  final Function onPress;
-  final Function switchOnChanged;
+  final String? title;
+  final String? subTitle;
+  final IconData? icon;
+  final Function? onPress;
+  final Function? switchOnChanged;
   final switchValue;
-  final Color color;
+  final Color? color;
 
   const DrawerItem({
     this.icon,
     this.title,
     this.onPress,
     this.color,
-    Key key,
+    Key? key,
     this.subTitle,
     this.switchOnChanged,
     this.switchValue,
@@ -24,7 +24,7 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      onPressed: onPress ?? () {},
+      onPressed: onPress as void Function()? ?? () {},
       child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: 16.0,
@@ -38,7 +38,7 @@ class DrawerItem extends StatelessWidget {
                   children: <Widget>[
                     Icon(
                       icon,
-                      color: color?? Theme.of(context).textTheme.caption.color,
+                      color: color?? Theme.of(context).textTheme.caption!.color,
                       size: 28.0,
                     ),
                     SizedBox(
@@ -49,7 +49,7 @@ class DrawerItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            title,
+                            title!,
                             style: TextStyle(
                                 //fontWeight: FontWeight.w500,
                                 color: Colors.grey[500]
@@ -59,7 +59,7 @@ class DrawerItem extends StatelessWidget {
                           subTitle == null
                               ? SizedBox()
                               : Text(
-                                  subTitle,
+                                  subTitle!,
                                   style: TextStyle(
                                       //fontWeight: FontWeight.w500,
                                       color: Colors.grey[600],
@@ -79,7 +79,7 @@ class DrawerItem extends StatelessWidget {
                   ? SizedBox()
                   : Switch(
                       value: switchValue,
-                      onChanged: switchOnChanged,
+                      onChanged: switchOnChanged as void Function(bool)?,
                       activeColor: Theme.of(context).accentColor,
                     )
             ],
