@@ -22,6 +22,8 @@ class Themes {
   static Color shadowColorLight = Colors.black87;
   static Color shadowColorDark = Colors.white70;
 
+  static Color secondaryColor = Colors.grey;
+
   static var darkShadow = const <BoxShadow>[
     BoxShadow(
       color: Colors.white70,

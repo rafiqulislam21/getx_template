@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_template/constants/app_images.dart';
 import 'package:getx_template/constants/app_sizes.dart';
+import 'package:getx_template/views/pages/authentication/signup/signup_screen.dart';
 import 'package:getx_template/views/pages/home_screen.dart';
-import 'package:getx_template/views/pages/signup/signup_screen.dart';
 import 'package:getx_template/views/widgets/widgets.dart';
+
+import '../forgot_password/forgot_password_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -67,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          // Double tapped.
+                         Get.to(ForgotPasswordScreen());
                         }),
                 ],
               ),
@@ -84,15 +86,15 @@ class LoginScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomSocialMediaButton(
+              CustomRoundButton(
                 imageIcon: AppImages.FACEBOOK,
                 onPressed: () {},
               ),
-              CustomSocialMediaButton(
+              CustomRoundButton(
                 imageIcon: AppImages.GOOGLE,
                 onPressed: () {},
               ),
-              CustomSocialMediaButton(
+              CustomRoundButton(
                 imageIcon: AppImages.TWITTER,
                 onPressed: () {},
               ),

@@ -4,8 +4,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:getx_template/constants/app_images.dart';
 import 'package:getx_template/constants/app_sizes.dart';
+import 'package:getx_template/views/pages/authentication/login/login_screen.dart';
 import 'package:getx_template/views/pages/home_screen.dart';
-import 'package:getx_template/views/pages/login/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
