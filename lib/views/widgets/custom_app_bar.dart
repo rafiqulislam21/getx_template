@@ -1,39 +1,41 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget{
-  final isExpanded;
+import 'widgets.dart';
+
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Widget? title;
   final Widget? leading;
   final double? titleSpacing;
-
-
+  final bool centerTitle;
+  final PreferredSizeWidget? bottom;
+  final Widget? flexibleSpace;
+  final bool transparentBg;
 
   const CustomAppBar({
     Key? key,
     this.actions,
     this.title,
-    this.isExpanded,
     this.leading,
     this.titleSpacing,
-    }) : super(key: key);
-
+    this.transparentBg = false,
+    this.centerTitle = false,
+    this.bottom,
+    this.flexibleSpace,
+  }) : super(key: key);
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
 
   @override
   Size get preferredSize => new Size.fromHeight(kToolbarHeight);
-
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
-
   @override
   Widget build(BuildContext context) {
     return AppBar(
-//      backgroundColor: Colors.transparent,
-      flexibleSpace: Theme.of(context).brightness == Brightness.light ? Container(
+      /*flexibleSpace: Theme.of(context).brightness == Brightness.light ? Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
@@ -43,28 +45,25 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     Color(0xff18ffff),
                   ])
           )
-      ) : null,
-      leading: widget.leading,
-      titleSpacing: widget.titleSpacing??20,
-      /* Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: RaisedButton(
-          padding: EdgeInsets.all(0),
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)),
-          onPressed: () {
-          },
-          color: Colors.white,
-          child: Icon(
-            Icons.trending_up,
-//            color: AppColors.colorSchema['iconColor'],
-          ),
-        ),
-      ),*/
+      ) : null,*/
+      backgroundColor: widget.transparentBg ? Colors.transparent : null,
+      elevation: widget.transparentBg ? 0 : null,
+      shadowColor: widget.transparentBg ? Colors.transparent : null,
+      leading: widget.leading ?? (widget.transparentBg
+          ? CustomRoundButton(
+              icon: Icons.chevron_left,
+              iconColor: Theme.of(context).primaryColor,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            )
+          : null),
+      titleSpacing: widget.titleSpacing,
       actions: widget.actions,
       title: widget.title,
-      centerTitle: false,
-//      titleSpacing: 0,
+      centerTitle: widget.centerTitle,
+      bottom: widget.bottom,
+      flexibleSpace: widget.flexibleSpace,
       automaticallyImplyLeading: false,
     );
   }

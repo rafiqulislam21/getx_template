@@ -11,17 +11,8 @@ class NewPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        shadowColor: Colors.transparent,
-        leading: CustomRoundButton(
-          icon: Icons.chevron_left,
-          iconColor: Get.theme.primaryColor,
-          onPressed: (){
-            Get.back();
-          },
-        ),
+      appBar: CustomAppBar(
+        transparentBg: true,
       ),
       body: Center(
         child: Column(

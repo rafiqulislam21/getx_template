@@ -46,7 +46,7 @@ class LoginScreen extends StatelessWidget {
               isExpand: true,
               text: "Login",
               onPressed: () {
-                Get.to(HomeScreen());
+                Get.off(HomeScreen());
               },
             ),
             RichText(

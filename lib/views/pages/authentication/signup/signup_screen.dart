@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_template/constants/app_images.dart';
 import 'package:getx_template/constants/app_sizes.dart';
-import 'package:getx_template/views/pages/home_screen.dart';
 import 'package:getx_template/views/widgets/widgets.dart';
 
 import 'otp_input_screen.dart';
@@ -13,17 +12,8 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          shadowColor: Colors.transparent,
-          leading: CustomRoundButton(
-            icon: Icons.chevron_left,
-            iconColor: Get.theme.primaryColor,
-            onPressed: (){
-              Get.back();
-            },
-          ),
+        appBar: CustomAppBar(
+          transparentBg: true,
         ),
         body: Center(
           child: SingleChildScrollView(

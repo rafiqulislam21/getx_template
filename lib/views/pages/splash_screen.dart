@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     initialize();
     return Scaffold(
-      backgroundColor: Colors.deepOrange,
+      backgroundColor: Get.theme.primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -22,34 +22,19 @@ class SplashScreen extends StatelessWidget {
               tag: "logo",
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.deepOrange[400],
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(500)),
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.deepOrange[300],
-                        borderRadius: BorderRadius.circular(500)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.deepOrange[200],
-                              borderRadius: BorderRadius.circular(500)),
-                          child: Padding(
-                            padding: EdgeInsets.all(15),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.deepOrange[100],
-                                  borderRadius: BorderRadius.circular(500)),
-                              child: Image.asset(
-                                AppImages.LOGO,
-                                // fit: BoxFit.fitWidth,
-                                height: AppSizes.height / 5,
-                                alignment: Alignment.center,
-                              ),
-                            ),
-                          )),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Get.theme.primaryColor.withOpacity(0.9),
+                      borderRadius: BorderRadius.circular(500)),
+                  child: Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Image.asset(
+                      AppImages.LOGO,
+                      // fit: BoxFit.fitWidth,
+                      height: AppSizes.height / 5,
+                      alignment: Alignment.center,
                     ),
                   ),
                 ),
